@@ -70,10 +70,7 @@ return require('packer').startup(function(use)
     -- 9. to use ipython in vim    
     use 'jpalardy/vim-slime'
 
-    -- 10. tokyonight theme
-    use 'folke/tokyonight.nvim'
-
-    -- 11. gruvbox
+    -- 10. gruvbox
     use {'morhetz/gruvbox', config = function() vim.cmd.colorscheme("gruvbox") end }
 
 end)
