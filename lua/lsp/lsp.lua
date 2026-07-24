@@ -1,14 +1,54 @@
 -- python lsp
-vim.lsp.config["suhpy"] = {
+vim.lsp.config("pylsp", {
     -- cmd = { 'basedpyright-langserver', '--stdio' },
+	-- cmd = { "zuban", "server" },
+    name = "pylsp",
     cmd = { "pylsp" },
     filetypes = { 'python' },
+    root_markers = {
+        'pyproject.toml',
+        'setup.py',
+        'setup.cfg',
+        'requirements.txt',
+        'Pipfile',
+        '.git',
+    },
+
+    -- settings = {
+    --     typeCheckingMode = "off",
+    --     diagnosticMode = "workspace"
+    -- },
 
     settings = {
-        python = {
-            analysis = {
-                typeCheckingMode = "off",
-                diagnosticMode = "workspace"
+        pylsp = {
+            -- configurationSources = { "ruff" },
+            plugins = {
+                jedi_completion = { 
+                    enabled = true,
+                    fuzzy = true,
+                },
+                jedi_hover = { enabled = true },
+                jedi_references = { enabled = true },
+                jedi_symbols = { enabled = true },
+                ruff = { 
+                    enabled = false,  -- Enable the plugin
+                },
+                --     formatEnabled = true,  -- Enable formatting using ruffs formatter
+
+                -- --     -- Rules that are ignored when a pyproject.toml or ruff.toml is present:
+                -- --     lineLength = 100,  -- Line length to pass to ruff checking and formatting
+                -- --     exclude = { "__about__.py" },  -- Files to be excluded by ruff checking
+                -- --     ignore = { 'W391', "E501", "E126" },  -- Rules to be ignored by ruff
+                -- --     perFileIgnores = { ["__init__.py"] = "CPY001" },  -- Rules that should be ignored for specific files
+                --     select = { "E", "F", "W", "I" },
+                -- --     --preview = false,  -- Whether to enable the preview style linting and formatting.
+                -- },
+                pycodestyle = { 
+                    enabled = true,
+                    ignore = { 'W391', "E501", "E126", "E402" },  -- Rules to be ignored by ruff
+                },
+                mccabe = { enabled = false },
+                pyflakes = { enabled = false },
             }
         }
     },
@@ -18,12 +58,12 @@ vim.lsp.config["suhpy"] = {
             autotrigger = true,
         })
     end
-}
-vim.lsp.enable("suhpy")
+})
+vim.lsp.enable("pylsp")
 
 
 -- typst lsp
-vim.lsp.config["typstlsp"] = {
+vim.lsp.config("typstlsp",  {
     cmd = { "tinymist" },
     filetypes = { "typst" },
     settings = {
@@ -37,7 +77,7 @@ vim.lsp.config["typstlsp"] = {
             autotrigger = true,
         })
     end
-}
+})
 vim.lsp.enable("typstlsp")
 
 

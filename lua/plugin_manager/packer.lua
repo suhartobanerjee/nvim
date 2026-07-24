@@ -73,6 +73,18 @@ return require('packer').startup(function(use)
     use 'jpalardy/vim-slime'
 
     -- 10. gruvbox
-    use {'morhetz/gruvbox', config = function() vim.cmd.colorscheme("gruvbox") end }
+    use {'morhetz/gruvbox'}
+
+    -- colorscheme
+    -- use {
+    --     "folke/tokyonight.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     opts = {},
+    -- }
+
+    use {
+        'Mofiqul/dracula.nvim'
+    }
 
 end)

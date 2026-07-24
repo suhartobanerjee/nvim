@@ -6,3 +6,11 @@ require('nvim-treesitter').setup {
 require("nvim-treesitter").install {
 	"python", "c", "cpp", "snakemake", "r", "rust", "lua", "typst"
 }
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'python', "r", "snakemake", "cpp", "c", "cuda", "rust" , "lua"},
+  callback = function() 
+      vim.treesitter.start() 
+  end
+})
+
