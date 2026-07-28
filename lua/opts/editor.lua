@@ -74,3 +74,13 @@ vim.filetype.add({
 
 
 vim.opt.foldmethod = "indent"
+
+-- general autocomplete behaviour
+vim.opt.autocomplete = true
+
+-- auto bracket closing behaviour
+vim.keymap.set("i", "(", "()<Esc>i", { remap = false })
+vim.keymap.set("i", "{", "{}<Esc>i", { remap = false })
+vim.keymap.set("i", "[", "[]<Esc>i", { remap = false })
+vim.keymap.set("i", "<", "<><Esc>i", { remap = false })
+vim.keymap.set("i", "\"", "\"\"<Esc>i", { remap = false })

@@ -1,9 +1,7 @@
 -- python lsp
-vim.lsp.config("pylsp", {
-    -- cmd = { 'basedpyright-langserver', '--stdio' },
+vim.lsp.config("suhpy", {
+    cmd = { 'basedpyright-langserver', '--stdio' },
 	-- cmd = { "zuban", "server" },
-    name = "pylsp",
-    cmd = { "pylsp" },
     filetypes = { 'python' },
     root_markers = {
         'pyproject.toml',
@@ -14,41 +12,11 @@ vim.lsp.config("pylsp", {
         '.git',
     },
 
-    -- settings = {
-    --     typeCheckingMode = "off",
-    --     diagnosticMode = "workspace"
-    -- },
-
     settings = {
-        pylsp = {
-            -- configurationSources = { "ruff" },
-            plugins = {
-                jedi_completion = { 
-                    enabled = true,
-                    fuzzy = true,
-                },
-                jedi_hover = { enabled = true },
-                jedi_references = { enabled = true },
-                jedi_symbols = { enabled = true },
-                ruff = { 
-                    enabled = false,  -- Enable the plugin
-                },
-                --     formatEnabled = true,  -- Enable formatting using ruffs formatter
-
-                -- --     -- Rules that are ignored when a pyproject.toml or ruff.toml is present:
-                -- --     lineLength = 100,  -- Line length to pass to ruff checking and formatting
-                -- --     exclude = { "__about__.py" },  -- Files to be excluded by ruff checking
-                -- --     ignore = { 'W391', "E501", "E126" },  -- Rules to be ignored by ruff
-                -- --     perFileIgnores = { ["__init__.py"] = "CPY001" },  -- Rules that should be ignored for specific files
-                --     select = { "E", "F", "W", "I" },
-                -- --     --preview = false,  -- Whether to enable the preview style linting and formatting.
-                -- },
-                pycodestyle = { 
-                    enabled = true,
-                    ignore = { 'W391', "E501", "E126", "E402" },  -- Rules to be ignored by ruff
-                },
-                mccabe = { enabled = false },
-                pyflakes = { enabled = false },
+        basedpyright = {
+            analysis = {
+                typeCheckingMode = "off",
+                diagnosticMode = "openFilesOnly"
             }
         }
     },
@@ -59,7 +27,7 @@ vim.lsp.config("pylsp", {
         })
     end
 })
-vim.lsp.enable("pylsp")
+vim.lsp.enable("suhpy")
 
 
 -- typst lsp
