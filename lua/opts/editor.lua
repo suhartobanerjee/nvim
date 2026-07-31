@@ -78,9 +78,14 @@ vim.opt.foldmethod = "indent"
 -- general autocomplete behaviour
 vim.opt.autocomplete = true
 
+local opts = { remap = false }
+
+-- file path completion remap
+vim.keymap.set("i", "<C-F>", "<C-X><C-F>", opts)
+
 -- auto bracket closing behaviour
-vim.keymap.set("i", "(", "()<Esc>i", { remap = false })
-vim.keymap.set("i", "{", "{}<Esc>i", { remap = false })
-vim.keymap.set("i", "[", "[]<Esc>i", { remap = false })
-vim.keymap.set("i", "<", "<><Esc>i", { remap = false })
-vim.keymap.set("i", "\"", "\"\"<Esc>i", { remap = false })
+vim.keymap.set("i", "(", "()<Esc>i", opts)
+vim.keymap.set("i", "{", "{}<Esc>i", opts)
+vim.keymap.set("i", "[", "[]<Esc>i", opts)
+vim.keymap.set("i", "<", "<><Esc>i", opts)
+vim.keymap.set("i", "\"", "\"\"<Esc>i", opts)
