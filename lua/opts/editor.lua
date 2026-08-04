@@ -84,8 +84,8 @@ local opts = { remap = false }
 vim.keymap.set("i", "<C-F>", "<C-X><C-F>", opts)
 
 -- auto bracket closing behaviour
-vim.keymap.set("i", "(", "()<Esc>i", opts)
-vim.keymap.set("i", "{", "{}<Esc>i", opts)
-vim.keymap.set("i", "[", "[]<Esc>i", opts)
-vim.keymap.set("i", "<", "<><Esc>i", opts)
-vim.keymap.set("i", "\"", "\"\"<Esc>i", opts)
+-- vim.keymap.set("i", "(", "()<Esc>i", opts)
+-- vim.keymap.set("i", "{", "{}<Esc>i", opts)
+-- vim.keymap.set("i", "[", "[]<Esc>i", opts)
+-- vim.keymap.set("i", "<", "<><Esc>i", opts)
+-- vim.keymap.set("i", "\"", "\"\"<Esc>i", opts)

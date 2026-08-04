@@ -16,7 +16,13 @@ vim.lsp.config("suhpy", {
         basedpyright = {
             analysis = {
                 typeCheckingMode = "off",
-                diagnosticMode = "openFilesOnly"
+                diagnosticMode = "openFilesOnly",
+                autoImportCompletions = true,
+                autoFormatStrings = true,
+                inlayHints = {
+                    callArgumentNames = true,
+                    callArgumentNamesMatching = true,
+                }
             }
         }
     },
@@ -25,6 +31,9 @@ vim.lsp.config("suhpy", {
         vim.lsp.completion.enable(true, client.id, bufnr, {
             autotrigger = true,
         })
+        -- omnifunc autotrigger on char
+        vim.keymap.set("i", ".", ".<C-X><C-O>", { remap = false })
+        vim.keymap.set("i", "(", "(<C-X><C-O>", { remap = false })
     end
 })
 vim.lsp.enable("suhpy")
@@ -48,6 +57,21 @@ vim.lsp.config("typstlsp",  {
 })
 vim.lsp.enable("typstlsp")
 
+vim.lsp.config("clangd", {
+    cmd = { 'clangd', '--background-index' },
+    root_markers = { ".git"},
+    filetypes = { 'c', 'cpp' , "cuda"},
+    on_attach = function(client, bufnr)
+        vim.lsp.completion.enable(true, client.id, bufnr, {
+            autotrigger = true,
+        })
+        -- omnifunc autotrigger on char
+        vim.keymap.set("i", ".", ".<C-X><C-O>", { remap = false })
+        vim.keymap.set("i", "(", "(<C-X><C-O>", { remap = false })
+        vim.keymap.set("i", ">", "><C-X><C-O>", { remap = false })
+    end,
+})
+vim.lsp.enable({'clangd'})
 
 -- show pop up menu
 vim.cmd("set completeopt=fuzzy,menuone,popup,noselect")
@@ -77,6 +101,7 @@ vim.keymap.set('i', '<CR>', function()
         return '<CR>'
     end
 end, { expr = true, remap = false })
+
 
 -- keymaps for using lsp functions
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
