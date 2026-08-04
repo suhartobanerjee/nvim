@@ -89,3 +89,17 @@ vim.keymap.set("i", "<C-F>", "<C-X><C-F>", opts)
 -- vim.keymap.set("i", "[", "[]<Esc>i", opts)
 -- vim.keymap.set("i", "<", "<><Esc>i", opts)
 -- vim.keymap.set("i", "\"", "\"\"<Esc>i", opts)
+
+-- neovide specific settings
+if vim.g.neovide then
+    vim.g.neovide_scale_factor = 1.2
+    vim.g.neovide_scroll_animation_length = 0
+    vim.g.neovide_scroll_animation_far_lines = 0
+    vim.g.neovide_position_animation_length = 0
+    vim.g.neovide_cursor_animation_length = 0
+    vim.g.neovide_cursor_trail_size = 0
+    vim.g.neovide_cursor_animate_command_line = false
+    vim.g.neovide_progress_bar_animation_speed = 0
+    vim.g.neovide_hide_mouse_when_typing = true
+    vim.g.neovide_remember_window_size = true
+end
