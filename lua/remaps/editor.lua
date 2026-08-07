@@ -9,7 +9,7 @@ vim.g.mapleader = " "
 -- vim.keymap.set('i', '\'', '\'\'<Esc>ha')
 -- vim.keymap.set('i', '`', '``<Esc>ha')
 
-local opts = {silent = true}
+local opts = {silent = true, remap = false}
 
 -- Buffer and file manipulations
 vim.keymap.set('n', '<leader>t', ':b#<CR>', opts)
@@ -40,3 +40,6 @@ vim.keymap.set('n', '<leader>cc', 'ciw""<Esc>P')
 
 -- use esc to come to normal mode in terminal
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n><CR>')
+
+-- file path completion remap
+vim.keymap.set("i", "<C-F>", "<C-X><C-F>", opts)

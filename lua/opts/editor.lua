@@ -56,6 +56,9 @@ vim.opt.belloff = 'all'
 
 -- Show numbers in netrw
 vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+vim.g.netrw_keepdir = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
 
 
 -- line at col 80
@@ -78,17 +81,6 @@ vim.opt.foldmethod = "indent"
 -- general autocomplete behaviour
 vim.opt.autocomplete = true
 
-local opts = { remap = false }
-
--- file path completion remap
-vim.keymap.set("i", "<C-F>", "<C-X><C-F>", opts)
-
--- auto bracket closing behaviour
--- vim.keymap.set("i", "(", "()<Esc>i", opts)
--- vim.keymap.set("i", "{", "{}<Esc>i", opts)
--- vim.keymap.set("i", "[", "[]<Esc>i", opts)
--- vim.keymap.set("i", "<", "<><Esc>i", opts)
--- vim.keymap.set("i", "\"", "\"\"<Esc>i", opts)
 
 -- neovide specific settings
 if vim.g.neovide then
