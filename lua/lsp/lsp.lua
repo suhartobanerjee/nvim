@@ -9,7 +9,6 @@ vim.lsp.config("suhpy", {
         'setup.cfg',
         'requirements.txt',
         'Pipfile',
-        '.git',
     },
 
     settings = {

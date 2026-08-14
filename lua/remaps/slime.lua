@@ -1,10 +1,11 @@
 function customPythonMappings()
     vim.g.maplocalleader = "\\"
 
-    -- to split and open terminal
-    vim.keymap.set('n', '<localleader>ps', '<C-W>41s<C-W>j:term<CR>iconda activate $CDE<CR>ipython<CR><C-\\><C-n><C-W>k:SlimeConfig<CR><CR>')
-
     local opts = {silent = true}
+
+    -- to split and open terminal
+    vim.keymap.set('n', '<localleader>ps', ':botright split | resize 21<CR>:term<CR>iconda activate $CDE<CR>ipython<CR><C-\\><C-n><C-W>k:SlimeConfig<CR><CR>', opts)
+
     vim.keymap.set({'n', 'i', 'v'}, '<localleader>cf', '<Esc>:SlimeConfig<CR>')
     vim.keymap.set({'n', 'i', 'v'}, '<localleader><CR>', '<Esc>:lua sendIndentedBlock()<CR>i')
     vim.keymap.set('v', '<localleader><CR>', ":'<,'>SlimeSend<CR>`>ji")
