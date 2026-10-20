@@ -44,8 +44,9 @@ vim.lsp.config("typstlsp",  {
     filetypes = { "typst" },
     settings = {
         formatterMode = "typstyle",
-        exportPdf = "onType",
-        semanticTokens = "disable"
+        exportPdf = "onSave",
+        outputPath = "$root/build/$dir/$name",
+        semanticTokens = "enable"
     },
 
     on_attach = function(client, bufnr)
